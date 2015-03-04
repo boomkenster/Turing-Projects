@@ -1,0 +1,12 @@
+classes
+
+KeyCalculator
+OffsetCalculator
+Encryptor
+Decrypter
+Cracker
+Rotator
+
+
+Encrypt
+Decrypt
