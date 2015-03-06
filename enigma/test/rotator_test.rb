@@ -3,11 +3,11 @@ require_relative '../rotator'
 
 class RotatorTest < Minitest::Test
   def test_it_exist
-    assert true
+    assert Rotator
   end
 
   def test_total_rotation_adds_values
-    rot = Rotator.new("asdf", "12345") #offset 5225
+    rot = Rotator.new("asdf", "12345", "030515") #offset 5225
     assert_equal [17,25,36,50], rot.sum_key_offset
   end
 
@@ -22,18 +22,18 @@ class RotatorTest < Minitest::Test
   end
 
   def test_final_rotation
-    rot = Rotator.new("abdc", "12345")
+    rot = Rotator.new("abdc", "12345", "030515")
     assert_equal [17,26,0,13], rot.encrypted_position
   end
 
   def test_characters_are_being_rotated
-    encrypt = Rotator.new("abdc", "12345")
-    assert_equal ["r","0","a","n"], encrypt.rotate_characters
+    encrypt = Rotator.new("abdc", "12345", "030515")
+    assert_equal ["r","0","a","n"], encrypt.encrypt_rotate_characters
   end
 
   def test_that_ruby_encrypted_correctly
     encrypt = Rotator.new("ruby", "41521", "020315" )
-    assert_equal ["2", ".", "q", "l"], encrypt.rotate_characters
+    assert_equal ["2", ".", "q", "l"], encrypt.encrypt_rotate_characters
   end
 
 end

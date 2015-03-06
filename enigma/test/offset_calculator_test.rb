@@ -4,7 +4,7 @@ require_relative '../offset_calculator'
 class OffsetCalculatorTest < Minitest::Test
 
 def test_it_exist
-  assert true
+  assert OffsetCalculator
 end
 
 def test_it_can_take_a_value

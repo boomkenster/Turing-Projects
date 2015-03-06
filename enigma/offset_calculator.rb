@@ -16,6 +16,6 @@ class OffsetCalculator
 
 end
 
-off = OffsetCalculator.new("020315") #412699225
-puts off.square_date
-puts off.second_rotation
+# off = OffsetCalculator.new("020315") #412699225
+# puts off.square_date
+# puts off.second_rotation

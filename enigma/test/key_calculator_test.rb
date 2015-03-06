@@ -4,7 +4,7 @@ require_relative '../key_calculator'
 class KeyCalculatorTest < Minitest::Test
 
   def test_it_exist
-    assert true
+    assert KeyCalculator
   end
 
   def test_key_is_5_numbers
