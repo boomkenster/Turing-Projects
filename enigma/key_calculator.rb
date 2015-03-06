@@ -6,13 +6,12 @@ class KeyCalculator
   end
 
   def first_rotation
-    #each_with_index
-    key_string = key
-    first_rotation_values = []
-    4.times do |n|
-      first_rotation_values << (key_string[n] + key_string[n+1]).to_i
-    end
-    first_rotation_values
+    [
+      (key[0] + key[1]).to_i,
+      (key[1] + key[2]).to_i,
+      (key[2] + key[3]).to_i,
+      (key[3] + key[4]).to_i
+    ]
   end
 
 private
