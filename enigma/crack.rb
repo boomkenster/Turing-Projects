@@ -11,11 +11,6 @@ attr_reader :message
     @date = date
   end
 
-  def start_crack
-  n = message % 4
-  message[-1 - n]
-  end
-
   def cracker
     @key = 0
     @rotator = Rotator.new(message, @key_attempt, @date)
@@ -29,5 +24,5 @@ attr_reader :message
 
 end
 
-cracking = Crack.new("4v7gt4vxn8p2vonyp4syj", "020315")
-cracking.cracker
+# cracking = Crack.new("4v7gt4vxn8p2vonyp4syj", "020315")
+# cracking.cracker

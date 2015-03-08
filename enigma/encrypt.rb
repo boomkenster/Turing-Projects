@@ -18,7 +18,8 @@ class Encrypt
     output.write(encrypted_text)
     output.close
   end
-
 end
 
+if __FILE__ == $0
 Encrypt.new.write_encrypted_file
+end

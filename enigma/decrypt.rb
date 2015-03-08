@@ -21,4 +21,6 @@ class Decrypt
 
 end
 
+if __FILE__ == $0
 Decrypt.new.write_decrypted_file
+end
