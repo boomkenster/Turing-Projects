@@ -30,14 +30,29 @@ class Rotator
     sum_rotation.map{|number| number[0] + number[1]}
   end
 
+  def aggregate_offset
+    message_length = message.length/4
+    repeated_sum = sum_key_offset + sum_key_offset
+    (message_length).times do
+      repeated_sum += repeated_sum
+    end
+    sums = repeated_sum.take(message.length)
+  end
+
   def decrypted_position
-    position = replace_item_with_index.zip(sum_key_offset)
-    sum = position.map{|number| number[-0] + number[-1]}
-    sum.map {|value| value % 39}
+    position = replace_item_with_index.zip(aggregate_offset)
+    sum = position.map{|number| number[1] - number[0]}
+    sum.map do |value|
+      if 0 > value
+        value.abs
+      else
+        39 - value.abs
+      end
+    end
   end
 
   def encrypted_position
-    position = replace_item_with_index.zip(sum_key_offset)
+    position = replace_item_with_index.zip(aggregate_offset)
     sum = position.map{|number| number[0] + number[1]}
     sum.map {|value| value % 39}
   end
@@ -46,17 +61,18 @@ class Rotator
     encrypted_position.map {|position| character_map[position]}
   end
 
-  def dencrypt_rotate_characters
-    dencrypted_position.map {|position| character_map[position]}
+  def decrypt_rotate_characters
+    decrypted_position.map {|position| character_map[position]}
   end
 
 end
 
-# puts ARGV.inspect
+puts ARGV.inspect
 
-# rot = Rotator.new("ruby", "41521")
+rot = Rotator.new("4yxfiz7xlo843 ", "41521", "020315")
 # puts rot.character_map.inspect
 # puts rot.replace_item_with_index.inspect
-# puts rot.encrypted_position.inspect
-# puts rot.rotate_characters.inspect
-# puts rot.append_message_and_values.inspect
+puts rot.aggregate_offset.inspect
+puts rot.encrypt_rotate_characters.inspect
+puts rot.decrypted_position.inspect
+puts rot.decrypt_rotate_characters.inspect

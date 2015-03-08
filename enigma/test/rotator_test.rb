@@ -34,6 +34,14 @@ class RotatorTest < Minitest::Test
   def test_that_ruby_encrypted_correctly
     encrypt = Rotator.new("ruby", "41521", "020315" )
     assert_equal ["2", ".", "q", "l"], encrypt.encrypt_rotate_characters
+
+    encrypt = Rotator.new("ruby ruby ruby", "41521", "020315" )
+    assert_equal ["2", ".", "q", "l"], encrypt.encrypt_rotate_characters
   end
 
+  def test_that_ruby_decrypts_correctly
+    skip
+    decrypt = Rotator.new("2.ql", "41521", "020315" )
+    assert_equal ["r", "u", "b", "y"], decrypt.decrypt_rotate_characters
+  end
 end
