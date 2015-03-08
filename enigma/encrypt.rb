@@ -14,7 +14,7 @@ class Encrypt
 
   def write_encrypted_file
     output = File.open(@write_doc, "w")
-    encrypted_text = @rotator.encrypt_rotate_characters.join
+    encrypted_text = @rotator.encrypt_rotate_characters
     output.write(encrypted_text)
     output.close
   end

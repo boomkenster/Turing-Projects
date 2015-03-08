@@ -19,7 +19,7 @@ class Rotator
   end
 
   def replace_item_with_index
-    split_message = message.chars #.each_slice(4).to_a.map(&:join)
+    split_message = message.chars
     split_message.map do |item|
       item = character_map.index(item)
     end
@@ -58,21 +58,19 @@ class Rotator
   end
 
   def encrypt_rotate_characters
-    encrypted_position.map {|position| character_map[position]}
+    encrypted_position.map {|position| character_map[position]}.join
   end
 
   def decrypt_rotate_characters
-    decrypted_position.map {|position| character_map[position]}
+    decrypted_position.map {|position| character_map[position]}.join
   end
 
 end
 
-puts ARGV.inspect
-
-rot = Rotator.new("4yxfiz7xlo843 ", "41521", "020315")
-# puts rot.character_map.inspect
-# puts rot.replace_item_with_index.inspect
-puts rot.aggregate_offset.inspect
-puts rot.encrypt_rotate_characters.inspect
-puts rot.decrypted_position.inspect
-puts rot.decrypt_rotate_characters.inspect
+# rot = Rotator.new("to08vvm2z5z8p9mbyo1byuplj", "41521", "020315")
+# # puts rot.character_map.inspect
+# # puts rot.replace_item_with_index.inspect
+# # # puts rot.aggregate_offset.inspect
+# # # puts rot.encrypt_rotate_characters.inspect
+# # puts rot.decrypted_position.inspect
+# puts rot.decrypt_rotate_characters.inspect

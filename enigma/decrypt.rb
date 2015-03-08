@@ -14,8 +14,8 @@ class Decrypt
 
   def write_decrypted_file
     output = File.open(@write_doc, "w")
-    encrypted_text = @rotator.decrypt_rotate_characters.join
-    output.write(encrypted_text)
+    decrypted_text = @rotator.decrypt_rotate_characters
+    output.write(decrypted_text)
     output.close
   end
 
