@@ -1,8 +1,7 @@
 require "./rotator"
 
 class Encrypt
-  attr_reader :key, :date
-  attr_accessor :write_doc, :read_doc
+  attr_reader :key, :date, :write_doc, :read_doc
 
   def initialize(read_doc = nil, write_doc = nil, key = nil, date =nil)
     read_doc ? @read_doc = read_doc : @read_doc = File.read(ARGV[0]).strip

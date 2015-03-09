@@ -43,7 +43,7 @@ class Rotator
     position = replace_item_with_index.zip(aggregate_offset)
     sum = position.map{|number| number[1] - number[0]}
     sum.map do |value|
-      if 0 > value
+      if 0 >= value
         value.abs
       else
         39 - value.abs
@@ -67,10 +67,10 @@ class Rotator
 
 end
 
-# rot = Rotator.new("to08vvm2z5z8p9mbyo1byuplj", "41521", "020315")
-# # puts rot.character_map.inspect
-# # puts rot.replace_item_with_index.inspect
-# # # puts rot.aggregate_offset.inspect
-# # # puts rot.encrypt_rotate_characters.inspect
-# # puts rot.decrypted_position.inspect
+# rot = Rotator.new("33rzhu26h,.821z8orr8nrsc3v,p5zz2rph7xf", "11111", "020315")
+# puts rot.character_map.inspect
+# puts rot.replace_item_with_index.inspect
+# puts rot.aggregate_offset.inspect
+# puts rot.encrypt_rotate_characters.inspect
+# puts rot.decrypted_position.inspect
 # puts rot.decrypt_rotate_characters.inspect
