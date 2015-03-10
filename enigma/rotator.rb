@@ -2,8 +2,7 @@ require "./key_calculator"
 require "./offset_calculator"
 
 class Rotator
-  attr_reader :key_calculator, :character_map
-  attr_accessor :message, :offset_calculator
+  attr_reader :key_calculator, :character_map, :message, :offset_calculator
 
   def initialize(message, key=nil, date = nil)
     @message = message

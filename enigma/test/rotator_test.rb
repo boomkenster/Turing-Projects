@@ -36,6 +36,8 @@ class RotatorTest < Minitest::Test
     assert_equal [17,26,0,13], rot.encrypted_position
   end
 
+
+
   def test_characters_are_being_rotated
     encrypt = Rotator.new("abdc", "12345", "030515")
     assert_equal "r0an", encrypt.encrypt_rotate_characters

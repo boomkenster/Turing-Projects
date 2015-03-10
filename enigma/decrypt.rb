@@ -22,5 +22,5 @@ end
 
 if __FILE__ == $0
 Decrypt.new.write_decrypted_file
-puts "Created #{Decrypt.new.read_doc} with the key #{Decrypt.new.key} and date #{Decrypt.new.date}"
+puts "Created #{Decrypt.new.write_doc} with the key #{Decrypt.new.key} and date #{Decrypt.new.date}"
 end

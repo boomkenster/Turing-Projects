@@ -1,7 +1,7 @@
 require_relative './rotator'
 
 class Crack
-  attr_reader :message, :key, :write_doc, :date
+  attr_reader :message, :write_doc, :date , :cracked_key
 
   def initialize(message = nil, write_doc = nil, date = nil)
     message ? @message = message : @message = File.read(ARGV[0])
@@ -10,13 +10,14 @@ class Crack
   end
 
   def cracker
-    @key = 0
+    key = 0
     @rotator = Rotator.new(@message, @key_attempt, @date)
     until @rotator.decrypt_rotate_characters[-7..-1] == "..end.."
-      @key_attempt = @key.to_s.rjust(5, "0")
+      @key_attempt = key.to_s.rjust(5, "0")
       @rotator = Rotator.new(message, @key_attempt, @date)
-      @key +=1
+      key +=1
     end
+    @cracked_key = key - 1
   end
 
   def write_cracked_file
@@ -29,7 +30,10 @@ class Crack
 
 end
 
+if __FILE__ == $0
 Crack.new.write_cracked_file
+puts "Created #{Crack.new.write_doc} with the key #{Crack.new.cracked_key} and date #{Crack.new.date}"
+end
 
 # brute_force = Crack.new("4qesb7hv77z49pos9bek9aeldq0oacss0peiubunu8","crackedcode", "020315")
 # brute_force = Crack.new(File.read(ARGV[0]),ARGV[1], ARGV[2])
