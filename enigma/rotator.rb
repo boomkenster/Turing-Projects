@@ -66,11 +66,3 @@ class Rotator
   end
 
 end
-
-# rot = Rotator.new("33rzhu26h,.821z8orr8nrsc3v,p5zz2rph7xf", "11111", "020315")
-# puts rot.character_map.inspect
-# puts rot.replace_item_with_index.inspect
-# puts rot.aggregate_offset.inspect
-# puts rot.encrypt_rotate_characters.inspect
-# puts rot.decrypted_position.inspect
-# puts rot.decrypt_rotate_characters.inspect
