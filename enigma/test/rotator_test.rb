@@ -64,6 +64,9 @@ class RotatorTest < Minitest::Test
     decrypt = Rotator.new("2.ql", "41521", "020315" )
     assert_equal "ruby", decrypt.decrypt_rotate_characters
 
+    decrypt = Rotator.new("2.ql  ", "41521", "020315" )
+    assert_equal "rubyzt", decrypt.decrypt_rotate_characters
+
     decrypt = Rotator.new("2.qli8919", "41521", "020315" )
     assert_equal "ruby ruby", decrypt.decrypt_rotate_characters
 
