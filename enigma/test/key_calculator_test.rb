@@ -25,5 +25,8 @@ class KeyCalculatorTest < Minitest::Test
 
     calc = KeyCalculator.new("02345")
     assert_equal [2,23,34,45], calc.first_rotation
+
+    calc = KeyCalculator.new()
+    assert true, calc.first_rotation
   end
 end

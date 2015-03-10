@@ -20,7 +20,7 @@ class DecryptTest < Minitest::Test
   def test_encrypted_data_is_in_new_file
     crypt = Decrypt.new("message","decrypt_file", "41521", "020315")
     crypt.write_decrypted_file
-    assert_equal "b0d5222", File.read("decrypt_file")
+    assert_equal "ruby", File.read("decrypt_file")
   end
 
 end

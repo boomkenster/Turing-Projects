@@ -1,6 +1,5 @@
 require "./key_calculator"
 require "./offset_calculator"
-require "pry"
 
 class Rotator
   attr_reader :key_calculator, :character_map
@@ -21,7 +20,7 @@ class Rotator
   def replace_item_with_index
     split_message = message.chars
     split_message.map do |item|
-      item = character_map.index(item)
+      character_map.index(item)
     end
   end
 
@@ -33,18 +32,20 @@ class Rotator
   def aggregate_offset
     message_length = message.length/4
     repeated_sum = sum_key_offset + sum_key_offset
-    (message_length).times do
+    message_length.times do
       repeated_sum += repeated_sum
     end
-    sums = repeated_sum.take(message.length)
+    repeated_sum.take(message.length)
   end
 
   def decrypted_position
     position = replace_item_with_index.zip(aggregate_offset)
     sum = position.map{|number| number[1] - number[0]}
     sum.map do |value|
-      if 0 >= value
+      if value <= 0
         value.abs
+      elsif value >= 78
+        78 - value
       else
         39 - value.abs
       end

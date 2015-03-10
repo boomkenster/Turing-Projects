@@ -24,8 +24,3 @@ private
     rand_key.join
   end
 end
-
-# keycal = KeyCalculator.new
-# puts keycal.key
-# puts keycal.first_rotation.inspect
-# puts keycal.first_rotation.inspect
